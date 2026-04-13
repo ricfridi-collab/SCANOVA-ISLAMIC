@@ -1,84 +1,67 @@
-:root { 
-    --gold: #d4af37; 
-    --gold-dim: rgba(212, 175, 55, 0.7);
-    --success: #22c55e;
-    --danger: #ef4444;
-    --deep-blue: #020617;
-    --glass: rgba(255, 255, 255, 0.05);
-    --card-grad: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+/* تعديل الحاوية لتناسب جميع الشاشات */
+.container { 
+    padding: 100px 15px 60px; /* تقليل الحواف الجانبية */
+    max-width: 100%; /* السماح بعرض كامل الشاشة */
+    width: 90%; /* ترك مسافة بسيطة على الجوانب */
+    margin: 0 auto; 
 }
 
-body {
-    margin: 0; background: var(--deep-blue); color: white; font-family: 'Amiri', serif;
-    background-image: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
-    min-height: 100vh; overflow-x: hidden;
-}
-
-/* شريط الأخبار */
-.ticker {
-    background: #000; border-bottom: 2px solid var(--gold); padding: 12px 0;
-    position: fixed; top: 0; width: 100%; z-index: 1000;
-}
-
-.ticker-text {
-    display: inline-block; white-space: nowrap; animation: scroll 30s linear infinite;
-    color: var(--gold); font-family: 'Cairo'; font-weight: 900;
-}
-
-@keyframes scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-
-.container { padding: 120px 20px 80px; max-width: 500px; margin: 0 auto; }
-
-/* البطاقات */
+/* تعديل البطاقة لتكون أصغر وأنسب للهاتف */
 .card {
     background: var(--card-grad); 
     border: 1px solid rgba(212, 175, 55, 0.15);
-    border-radius: 20px; margin-bottom: 20px; cursor: pointer; 
-    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(10px); display: flex; flex-direction: column; 
-    align-items: center; padding: 25px 15px;
+    border-radius: 15px; /* حواف أنعم */
+    margin-bottom: 15px; 
+    padding: 20px 10px; 
+    width: 100%; /* تأخذ العرض المتاح */
+    box-sizing: border-box; /* ضمان عدم خروج الحواف عن الشاشة */
 }
 
-.card:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2); }
-
-.card-icon-wrap { width: 70px; height: 70px; margin-bottom: 15px; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3)); }
-.card-icon-wrap svg { width: 100%; height: 100%; fill: var(--gold); transition: 0.3s; }
-.card:hover .card-icon-wrap svg { fill: white; }
-
-.card h3 { font-family: 'Cairo'; margin: 0; color: var(--gold); font-size: 1.2rem; }
-
-/* المودال والاختبار */
-.modal {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(2, 6, 23, 0.98); display: none; z-index: 2000;
-    justify-content: center; align-items: flex-start; padding-top: 30px;
+/* تصغير الأيقونات قليلاً للهاتف */
+.card-icon-wrap { 
+    width: 60px; 
+    height: 60px; 
+    margin-bottom: 12px; 
 }
 
-.quiz-window { width: 95%; max-width: 500px; padding: 20px; }
+.card h3 { 
+    font-size: 1.1rem; /* تصغير الخط قليلاً */
+}
 
+/* تعديل نافذة الاختبار لتغطي الشاشة بشكل مريح */
+.quiz-window { 
+    width: 92%; 
+    max-width: 450px; 
+    padding: 15px; 
+    margin: 0 auto;
+}
+
+/* تعديل شريط عداد الأسئلة (الكرات) ليناسب العرض الضيق */
 .penalty-bar {
-    display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px;
-    margin-bottom: 20px; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 12px;
+    grid-template-columns: repeat(10, 1fr); /* 10 كرات في كل صف */
+    gap: 3px;
+    padding: 8px;
+    margin-bottom: 15px;
 }
 
-.ball { height: 8px; background: #334155; border-radius: 4px; }
-.ball.correct { background: var(--success); box-shadow: 0 0 8px var(--success); }
-.ball.wrong { background: var(--danger); box-shadow: 0 0 8px var(--danger); }
+.ball { height: 6px; } /* كرات أصغر قليلاً */
 
-.btn-back {
-    background: #000; border: 1px solid var(--gold); color: var(--gold);
-    padding: 8px 15px; border-radius: 8px; font-family: 'Cairo'; cursor: pointer; margin-bottom: 15px;
-}
-
-#qCounter { text-align: center; color: var(--gold); margin-bottom: 10px; font-family: 'Cairo'; }
-.question-text { font-size: 1.3rem; text-align: center; margin-bottom: 20px; min-height: 60px; font-weight: bold; }
-
+/* تعديل أزرار الخيارات لتكون أسهل في اللمس باليد */
 .opt-btn {
-    display: block; width: 100%; padding: 14px; margin: 8px 0;
-    background: rgba(255,255,255,0.03); border: 1px solid rgba(212, 175, 55, 0.2);
-    color: white; border-radius: 10px; cursor: pointer; text-align: right; font-family: 'Cairo';
+    padding: 12px 15px; 
+    margin: 6px 0;
+    font-size: 1rem;
+    line-height: 1.4;
+    -webkit-tap-highlight-color: transparent; /* إزالة تأثير اللمس الافتراضي في أندرويد */
 }
 
-.opt-btn:hover { background: rgba(212, 175, 55, 0.1); border-color: var(--gold); }
+.question-text {
+    font-size: 1.15rem; /* خط أوضح وأنسب للهاتف */
+    min-height: 50px;
+    margin-bottom: 15px;
+}
 
-footer { text-align: center; padding: 30px; color: var(--gold); font-family: 'Cairo'; opacity: 0.6; font-size: 0.8rem; }
+/* شريط الأخبار: تصغير الخط لكي لا يأخذ مساحة كبيرة */
+.ticker-text {
+    font-size: 0.85rem;
+}
