@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكاديمية الدكتور شويدرة | التربية الإسلامية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="ticker">
+        <div class="ticker-text">
+             💎 DESIGNED BY DR. CHOUIDIRA MOHAMED 💎 مراجعة شهادة التعليم المتوسط 2026 💎 دعم حملة جمعية نور سين لتوفير سيارة إسعاف 💎
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card" onclick="startQuiz('quran')">
+            <div class="card-icon-wrap">
+                <svg viewBox="0 0 64 64"><path d="M56 8H40a16.05 16.05 0 0 0-16 16v32a15.91 15.91 0 0 1 15.33-12h16.67zM8 8h16a16.05 16.05 0 0 1 16 16v32a15.91 15.91 0 0 0-15.33-12H8z"/><circle cx="32" cy="18" r="4"/></svg>
+            </div>
+            <h3>القرآن والحديث الشريف</h3>
+        </div>
+        
+        <div class="card" onclick="startQuiz('aqida')">
+            <div class="card-icon-wrap">
+                <svg viewBox="0 0 64 64"><path d="M32 2L2 18v28l30 16 30-16V18zm26 17.65L33 33v24.62l-2-1.07V31.93l-25-13.3V21l25 13.3L58 21z"/></svg>
+            </div>
+            <h3>العقيدة الإسلامية</h3>
+        </div>
+
+        <div class="card" onclick="startQuiz('fiqh')">
+            <div class="card-icon-wrap">
+                <svg viewBox="0 0 64 64"><path d="M58 54h-4V26a22 22 0 0 0-44 0v28H6v4h52zm-38 0h-4v-8h4zm16 0h-4a8 8 0 0 1-8-8V26a10 10 0 0 1 20 0v20a8 8 0 0 1-8 8z"/></svg>
+            </div>
+            <h3>الفقه والقيم المالية</h3>
+        </div>
+
+        <div class="card" onclick="startQuiz('sira')">
+            <div class="card-icon-wrap">
+                <svg viewBox="0 0 64 64"><path d="M40 2L32 12l-8-10zM24 14l8-2 8 2v10H24zm22 12H18v36h28z"/></svg>
+            </div>
+            <h3>السيرة والقصص</h3>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="quiz-window">
+            <button class="btn-back" onclick="closeQuiz()">⬅ إغلاق</button>
+            <div id="penaltyBar" class="penalty-bar"></div>
+            <div id="qContent">
+                <div id="qCounter"></div>
+                <p id="qText" class="question-text"></p>
+                <div id="options"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>DESIGNED BY DR. CHOUIDIRA MOHAMED © 2026</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
